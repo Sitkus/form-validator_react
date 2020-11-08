@@ -1,12 +1,13 @@
 import React from 'react';
 import Inputs from './Inputs';
+import * as S from './Form.style';
 
 const Form = () => {
     return (
-        <form>
-            <h1>Register With Us</h1>
+        <S.Form>
+            <S.Title>Register With Us</S.Title>
             <Inputs />
-        </form>
+        </S.Form>
     );
 }
 

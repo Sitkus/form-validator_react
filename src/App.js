@@ -1,12 +1,13 @@
 import React from 'react';
 import {Form, Inputs} from './components/';
+import * as S from './App.style';
 import './App.scss';
 
 const App = () => {
   return (
-    <main>
+    <S.Main>
       <Form />
-    </main>
+    </S.Main>
   );
 }
 

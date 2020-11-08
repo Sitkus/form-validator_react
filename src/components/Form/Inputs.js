@@ -1,38 +1,35 @@
 import React, {useState} from 'react';
+import * as S from './Inputs.style';
 
 const Inputs = () => {
     const [inputs, setInputs] = useState([
         {
-            label: 'Username',
+            label: 'Username:',
             name: 'username',
             type: 'text',
             placeholder: 'Enter username',
-            value: '',
-            error: ''
+            value: ''
         },
         {
-            label: 'Email',
+            label: 'Email:',
             name: 'email',
             type: 'email',
             placeholder: 'Enter email',
-            value: '',
-            error: ''
+            value: ''
         },
         {
-            label: 'Password',
+            label: 'Password:',
             name: 'password',
             type: 'password',
             placeholder: 'Enter password',
-            value: '',
-            error: ''
+            value: ''
         },
         {
-            label: 'Confirm Password',
+            label: 'Confirm Password:',
             name: 'password',
             type: 'password',
             placeholder: 'Enter password again',
-            value: '',
-            error: ''
+            value: ''
         }
     ]);
 
@@ -66,24 +63,25 @@ const Inputs = () => {
         <>
             {
                 inputs.map((input, index) => (
-                    <div key={index}>
-                        <label htmlFor={input.name}>{input.label}</label>
-                        <input 
+                    <S.InputContainer key={index}>
+                        <S.Label htmlFor={input.name}>{input.label}</S.Label>
+                        <S.Input 
                             name={input.name} 
                             id={input.name} 
                             type={input.type} 
                             placeholder={input.placeholder} 
+                            error={input.error}
                             onChange={e => getValue(e, index)}
                         />
                         {
                             input.error ? 
-                            <small>{input.error}</small> :
+                            <S.Error>{input.error}</S.Error> :
                             null
                         }
-                    </div>
+                    </S.InputContainer>
                 ))
             }
-            <button onClick={checkValues}>Register</button>
+            <S.Button onClick={checkValues}>Register</S.Button>
         </>
     );
 }
